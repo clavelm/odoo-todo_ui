@@ -10,7 +10,7 @@
     domain="[]" 
     limit="80" 
   /> 
-  <act_window id="todo_app.action_todo_task" 
+  <act_window id="action_todo_task" 
     name="To-Do Tasks" 
     res_model="todo.task" 
     view_mode="tree,form,calendar,graph,pivot" 
