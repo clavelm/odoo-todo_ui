@@ -93,3 +93,5 @@ class TodoTask(models.Model):
     user_todo_count = fields.Integer(
         'User To-Do Count',
         compute='compute_user_todo_count')
+        
+    effort_estimate = fields.Integer('Effort Estimate')
