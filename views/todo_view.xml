@@ -10,17 +10,10 @@
     domain="[]" 
     limit="80" 
   /> 
-  <!-- <act_window id="todo_app.action_todo_task" 
-    name="To-Do Tasks" 
-    res_model="todo.task" 
-    view_mode="tree,form,calendar,graph,pivot" 
-    target="current" 
-    context="{'search_default_filter_my_tasks': True}" 
-  />  -->
   <act_window id="todo_app.action_todo_task" 
     name="To-Do Tasks" 
     res_model="todo.task" 
-    view_mode="tree,form,graph,pivot" 
+    view_mode="tree,form,calendar,graph,pivot" 
     target="current" 
     context="{'search_default_filter_my_tasks': True}" 
   /> 
@@ -31,16 +24,10 @@
     src_model="todo.task"  
     multi="False" 
   />
-  <!--<act_window id="action_todo_task_button"
-    name="To-Do Tasks"
-    res_model="todo.task"
-    view_mode="tree,form,calendar,graph,pivot"
-    domain="[('user_id','=',default_user_id)]"
-  />-->
   <act_window id="action_todo_task_button"
     name="To-Do Tasks"
     res_model="todo.task"
-    view_mode="tree,form,graph,pivot"
+    view_mode="tree,form,calendar,graph,pivot"
     domain="[('user_id','=',default_user_id)]"
   />
   
@@ -135,6 +122,17 @@
         <filter name="group_user" string="By User"  
           context="{'group_by': 'user_id'}"/> 
       </search> 
+    </field> 
+  </record>
+  <record id="view_calendar_todo_task" model="ir.ui.view"> 
+    <field name="model">todo.task</field> 
+    <field name="arch" type="xml"> 
+      <calendar date_start="date_deadline" color="user_id" 
+        display="[name], Stage [stage_id]" > 
+        <!-- Fields used for the display text --> 
+        <field name="name" /> 
+        <field name="stage_id" /> 
+      </calendar> 
     </field> 
   </record>
 </odoo>
